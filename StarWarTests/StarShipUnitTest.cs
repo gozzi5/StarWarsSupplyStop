@@ -24,6 +24,42 @@ namespace StarWarTests
 
 
         }
+        [TestMethod]
+        public void CalculateDistanceUnknownPass()
+        {
+
+            StarShip starShip = new StarShip
+            {
+                Consumables = "unknown",
+                MGLT = "unknown",
+                Name = "X Winger"
+            };
+
+
+            starShip.CalculateDistance(1000000);
+
+            Assert.AreEqual(0, starShip.PlanetStops);
+
+
+        }
+        [TestMethod]
+        public void CalculateDistanceUnknownFail()
+        {
+
+            StarShip starShip = new StarShip
+            {
+                Consumables = "unknown",
+                MGLT = "unknown",
+                Name = "X Winger"
+            };
+
+
+            starShip.CalculateDistance(1000000);
+
+            Assert.AreNotEqual(3, starShip.PlanetStops);
+
+
+        }
 
         [TestMethod]
         public void CalculateWrongStopShouldFail()
